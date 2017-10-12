@@ -18,9 +18,11 @@ describe FastSlice do
   end
 
   describe ".slice a hash and no additional args" do
-    it "returns the same hash" do
+    it "returns a dup of the hash" do
       hash = {}
-      assert_equal hash.object_id, FastSlice.slice(hash).object_id
+      result = FastSlice.slice(hash)
+      assert_equal false, hash.object_id == FastSlice.slice(hash).object_id
+      assert_equal hash, result
     end
   end
 

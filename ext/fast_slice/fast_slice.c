@@ -24,10 +24,6 @@ rb_fast_slice(int argc, VALUE *argv, VALUE self)
     return Qfalse;
   }
 
-  if (NIL_P(args)) {
-    return hash;
-  }
-
   if (!RHASH_EMPTY_P(hash)) {
     VALUE result;
     result = rb_hash_new();
@@ -44,7 +40,7 @@ rb_fast_slice(int argc, VALUE *argv, VALUE self)
     return result;
   }
 
-  return hash;
+  return rb_hash_dup(hash);
 }
 
 // Add the `slice` instance method to Hash
