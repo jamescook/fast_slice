@@ -32,7 +32,8 @@ rb_fast_slice(int argc, VALUE *argv, VALUE self)
     VALUE result;
     result = rb_hash_new();
 
-    for (int i=0; i < RARRAY_LEN(args); i++) {
+    int i;
+    for (i=0; i < RARRAY_LEN(args); i++) {
       VALUE arg;
       arg = rb_ary_entry(args, i);
       if(__rb_hash_has_key(hash, arg) == Qtrue) {
