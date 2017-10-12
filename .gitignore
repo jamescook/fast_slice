@@ -4,3 +4,4 @@ tmp/*
 .tool-versions*
 lib/fast_slice.bundle
 lib/fast_slice.so
+Gemfile.lock

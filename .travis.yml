@@ -1,0 +1,11 @@
+install: gem install rake rake-compiler
+dist: trusty
+language: ruby
+matrix:
+  include:
+  - os: linux
+    rvm: 2.4
+  - os: osx
+    rvm: 2.4
+  - os: linux
+    rvm: 1.9.3
