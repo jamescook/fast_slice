@@ -21,18 +21,12 @@ if ARGV.pop == "--use-active-support-slice"
     end
   end
 else
-  if darwin?
-    require_relative '../lib/fast_slice.bundle'
-  elsif nix?
-    require_relative '../lib/fast_slice.so'
-  else
-    raise "Sorry, your platform is not supported"
-  end
+  raise "Sorry, your platform is not supported" if windows?
+  require_relative '../lib/fast_slice'
 end
 
 hash = Hash.new
 ("a".."z").each{|letter| hash[letter] = 1 }
-
 
 Benchmark.ips do |b|
   b.time = 20
