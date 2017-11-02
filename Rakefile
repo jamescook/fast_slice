@@ -5,7 +5,9 @@ spec = Gem::Specification.load('fast_slice.gemspec')
 Rake::ExtensionTask.new('fast_slice', spec)
 
 Rake::TestTask.new(test: [:clean, :clobber, :compile]) do |t|
-  t.description = "Run unit tests"
+  if RUBY_VERSION >= "2"
+    t.description = "Run unit tests"
+  end
   t.libs << "test"
   t.test_files = FileList['test/unit/*.rb']
   t.verbose = true
