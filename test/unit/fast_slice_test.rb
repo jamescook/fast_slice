@@ -39,4 +39,12 @@ describe FastSlice do
       assert_equal({x: 1}, FastSlice.slice(hash, :x, :i_don_t_exist))
     end
   end
+
+  describe ".define_on_hash" do
+    it "creates a #slice method on Hash" do
+      FastSlice.define_on_hash
+      hash = {x: 42, y: -42}
+      assert_equal({y: -42}, hash.slice(:y))
+    end
+  end
 end

@@ -61,7 +61,7 @@ rb_fast_slice(int argc, VALUE *argv, VALUE self)
 static VALUE
 rb_define_hash_slice_m(void)
 {
-  rb_prepend_module(rb_cHash, FastSlice);
+  rb_define_method(rb_cHash, "slice", rb_fast_slice, -1);
   return Qtrue;
 }
 
