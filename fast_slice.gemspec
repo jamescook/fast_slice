@@ -1,6 +1,8 @@
+require_relative "lib/fast_slice/version"
+
 Gem::Specification.new do |s|
   s.name    = "fast_slice"
-  s.version = "1.0.0"
+  s.version = FastSlice::VERSION
   s.summary = "Hash#slice implemented in C"
   s.author  = "James Cook"
 
